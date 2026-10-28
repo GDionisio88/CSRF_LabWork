@@ -1,0 +1,68 @@
+
+\documentclass[11pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{float}
+\usepackage[T1]{fontenc}
+\usepackage[portuguese]{babel}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{amsmath,amssymb}
+\usepackage{siunitx}
+\usepackage{hyperref}
+\usepackage{caption}
+\usepackage{geometry}
+\geometry{top=2cm,bottom=2cm,footskip=1cm}
+\usepackage{xcolor}
+\usepackage{sectsty}
+\usepackage{subcaption}
+
+\definecolor{navyblue}{RGB}{0, 0, 128}
+\sectionfont{\color{navyblue}}
+\subsectionfont{\color{navyblue}}
+\subsubsectionfont{\color{navyblue}}
+
+% --- Capa ---
+\begin{document}
+\thispagestyle{empty}
+\begin{center}
+\vspace*{2cm}
+\includegraphics[width=0.4\textwidth]{logo_fct.png}\\[1cm]
+{\Large \textbf{Simulação de Link de Comunicação em GNU-Radio
+Testes de um recetor Low-IF (SDR)}}\\[0.6cm]
+{\large CSRF -- 1º Trabalho}\\[2cm]
+{\normalsize Diogo Ferreira 73076 \\ Gonçalo Dionísio 73638 \\ Iuri Moças }\\[1cm]
+\vspace*{3cm}
+{\normalsize Data: 25/05/2026}\\[3.5cm]
+{\normalsize Departamento de Engenharia Eletrotécnica e de Computadores}\\
+{\normalsize CSRF – 2026/2027 – 1º Semestre}\\
+\vfill
+\end{center}
+\newpage
+
+% --- Sumário ---
+\tableofcontents
+
+\listoffigures
+\newpage
+
+\section{Introdução}\paragraph{}
+
+Este relatório descreve o trabalho laboratorial desenvolvido no âmbito da unidade curricular de Circuitos 
+e Sistemas para Rádio-Frequência, centrado no estudo e teste de sistemas de comunicação por RF. 
+O trabalho divide-se em três etapas principais: a simulação a nível de sistema de uma ligação de 
+rádio AM com recurso ao GNU Radio; a modelação elétrica e respetiva simulação temporal e espectral 
+em SPICE; e o projeto, simulação e caracterização experimental de um filtro passa-banda de 2ª ordem 
+para a banda de FM com um Analisador Vetorial de Redes (VNA). Por fim, procedeu-se à integração deste 
+filtro num Radio Frequency Front-End (RFFE) para montagem e teste prático de um recetor Low-IF. 
+O objetivo central passa por comparar os resultados teóricos, as simulações ideais e com componentes 
+reais, e as respetivas medições laboratoriais.
+
+\section{Implementação e Simulação do Link de Comunicação em GNU Radio}\paragraph{}
+
+A primeira parte deste trabalho foi a implementação e simulação de um link de comunicação AM 
+utilizando o GNU Radio. O objetivo desta etapa foi compreender o funcionamento de um sistema 
+de comunicação AM, desde a modulação até à desmodulação do sinal.
+
+
+
+\end{document}
