@@ -10,4 +10,25 @@
 \@writefile{toc}{\contentsline {paragraph}{}{3}{section*.3}\protected@file@percent }
 \@writefile{toc}{\contentsline {section}{\numberline {2}Implementação e Simulação do Link de Comunicação em GNU Radio}{3}{section.2}\protected@file@percent }
 \@writefile{toc}{\contentsline {paragraph}{}{3}{section*.4}\protected@file@percent }
-\gdef \@abspage@last{3}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.1}Transmissor e canal}{3}{subsection.2.1}\protected@file@percent }
+\newlabel{eq:env}{{1}{3}{Transmissor e canal}{equation.1}{}}
+\newlabel{eq:am}{{2}{3}{Transmissor e canal}{equation.2}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces Transmissor AM e modelo de canal em GNU Radio: geração da mensagem, adição do \textit  {offset} DC, mistura com a portadora de \SI {100}{kHz} e adição de ruído gaussiano.}}{4}{figure.caption.5}\protected@file@percent }
+\providecommand*\caption@xref[2]{\@setref\relax\@undefined{#1}}
+\newlabel{fig:tx}{{1}{4}{Transmissor AM e modelo de canal em GNU Radio: geração da mensagem, adição do \textit {offset} DC, mistura com a portadora de \SI {100}{kHz} e adição de ruído gaussiano}{figure.caption.5}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.2}Receptor}{4}{subsection.2.2}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces Receptor AM com misturador IQ: mistura com LO em cosseno e seno, filtragem passa-baixo com decimação, combinação IQ e deteção de envolvente (\textit  {Complex to Mag}).}}{5}{figure.caption.6}\protected@file@percent }
+\newlabel{fig:rx}{{2}{5}{Receptor AM com misturador IQ: mistura com LO em cosseno e seno, filtragem passa-baixo com decimação, combinação IQ e deteção de envolvente (\textit {Complex to Mag})}{figure.caption.6}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.3}Resultados}{5}{subsection.2.3}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces Sinais no domínio do tempo: (a) mensagem, (b) sinal AM, (c) sinal à saída do canal, (d) saída dos filtros I/Q, (e) envolvente recuperada.}}{5}{figure.caption.7}\protected@file@percent }
+\newlabel{fig:tempo}{{3}{5}{Sinais no domínio do tempo: (a) mensagem, (b) sinal AM, (c) sinal à saída do canal, (d) saída dos filtros I/Q, (e) envolvente recuperada}{figure.caption.7}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces Espectros: (a) mensagem a \SI {1}{kHz}, (b) AM com portadora e bandas laterais a \SI {99}{kHz} e \SI {101}{kHz}, (c) sinal com ruído, (d) saída dos misturadores, com componentes em banda base e a \SI {200}{kHz}, (e) saída dos filtros.}}{5}{figure.caption.8}\protected@file@percent }
+\newlabel{fig:freq}{{4}{5}{Espectros: (a) mensagem a \SI {1}{kHz}, (b) AM com portadora e bandas laterais a \SI {99}{kHz} e \SI {101}{kHz}, (c) sinal com ruído, (d) saída dos misturadores, com componentes em banda base e a \SI {200}{kHz}, (e) saída dos filtros}{figure.caption.8}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.4}Ruído e relação sinal-ruído}{5}{subsection.2.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.5}Utilização de um ficheiro de áudio como mensagem}{5}{subsection.2.5}\protected@file@percent }
+\newlabel{sec:wav}{{2.5}{5}{Utilização de um ficheiro de áudio como mensagem}{subsection.2.5}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces Transmissor e canal com ficheiro de áudio como fonte: \textit  {Wav File Source} (\SI {48}{kHz}), interpolação por 16 (\SI {768}{kHz}), índice de modulação $m=0.5$, adição da constante unitária, mistura com a portadora e ruído gaussiano.}}{6}{figure.caption.9}\protected@file@percent }
+\newlabel{fig:wavtx}{{5}{6}{Transmissor e canal com ficheiro de áudio como fonte: \textit {Wav File Source} (\SI {48}{kHz}), interpolação por 16 (\SI {768}{kHz}), índice de modulação $m=0.5$, adição da constante unitária, mistura com a portadora e ruído gaussiano}{figure.caption.9}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces Receptor IQ com filtros passa-baixo a \SI {4}{kHz} e controlo do nível de ruído através de \textit  {QT GUI Range}.}}{6}{figure.caption.10}\protected@file@percent }
+\newlabel{fig:wavrx}{{6}{6}{Receptor IQ com filtros passa-baixo a \SI {4}{kHz} e controlo do nível de ruído através de \textit {QT GUI Range}}{figure.caption.10}{}}
+\gdef \@abspage@last{7}

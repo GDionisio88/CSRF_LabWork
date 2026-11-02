@@ -1,1 +1,7 @@
 \babel@toc {portuguese}{}\relax 
+\contentsline {figure}{\numberline {1}{\ignorespaces Transmissor AM e modelo de canal em GNU Radio: geração da mensagem, adição do \textit {offset} DC, mistura com a portadora de \SI {100}{kHz} e adição de ruído gaussiano.}}{4}{figure.caption.5}%
+\contentsline {figure}{\numberline {2}{\ignorespaces Receptor AM com misturador IQ: mistura com LO em cosseno e seno, filtragem passa-baixo com decimação, combinação IQ e deteção de envolvente (\textit {Complex to Mag}).}}{5}{figure.caption.6}%
+\contentsline {figure}{\numberline {3}{\ignorespaces Sinais no domínio do tempo: (a) mensagem, (b) sinal AM, (c) sinal à saída do canal, (d) saída dos filtros I/Q, (e) envolvente recuperada.}}{5}{figure.caption.7}%
+\contentsline {figure}{\numberline {4}{\ignorespaces Espectros: (a) mensagem a \SI {1}{kHz}, (b) AM com portadora e bandas laterais a \SI {99}{kHz} e \SI {101}{kHz}, (c) sinal com ruído, (d) saída dos misturadores, com componentes em banda base e a \SI {200}{kHz}, (e) saída dos filtros.}}{5}{figure.caption.8}%
+\contentsline {figure}{\numberline {5}{\ignorespaces Transmissor e canal com ficheiro de áudio como fonte: \textit {Wav File Source} (\SI {48}{kHz}), interpolação por 16 (\SI {768}{kHz}), índice de modulação $m=0.5$, adição da constante unitária, mistura com a portadora e ruído gaussiano.}}{6}{figure.caption.9}%
+\contentsline {figure}{\numberline {6}{\ignorespaces Receptor IQ com filtros passa-baixo a \SI {4}{kHz} e controlo do nível de ruído através de \textit {QT GUI Range}.}}{6}{figure.caption.10}%
