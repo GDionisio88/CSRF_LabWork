@@ -27,14 +27,14 @@
 \begin{center}
 \vspace*{2cm}
 \includegraphics[width=0.4\textwidth]{logo_fct.png}\\[1cm]
-{\Large \textbf{Simulação de Link de Comunicação em GNU-Radio
-Testes de um recetor Low-IF (SDR)}}\\[0.6cm]
-{\large CSRF -- 1º Trabalho}\\[2cm]
-{\normalsize Diogo Ferreira 73076 \\ Gonçalo Dionísio 73638 \\ Iuri Moças }\\[1cm]
+{\Large \textbf{Simulação de Link de Comunicação em GNU Radio
+e Testes de um Recetor Low-IF (SDR)}}\\[0.6cm]
+{\large CSRF -- 1.º Trabalho}\\[2cm]
+{\normalsize Diogo Ferreira 73076 \\ Gonçalo Dionísio 73638 \\ Iuri Moças 62907}\\[1cm]
 \vspace*{3cm}
 {\normalsize Data: 25/05/2026}\\[3.5cm]
 {\normalsize Departamento de Engenharia Eletrotécnica e de Computadores}\\
-{\normalsize CSRF – 2026/2027 – 1º Semestre}\\
+{\normalsize CSRF – 2026/2027 – 1.º Semestre}\\
 \vfill
 \end{center}
 \newpage
@@ -50,11 +50,11 @@ Testes de um recetor Low-IF (SDR)}}\\[0.6cm]
 Este relatório descreve o trabalho laboratorial desenvolvido no âmbito da unidade curricular de Circuitos 
 e Sistemas para Rádio-Frequência, centrado no estudo e teste de sistemas de comunicação por RF. 
 O trabalho divide-se em três etapas principais: a simulação a nível de sistema de uma ligação de 
-rádio AM com recurso ao GNU Radio; a modelação elétrica e respetiva simulação temporal e espectral 
-em SPICE; e o projeto, simulação e caracterização experimental de um filtro passa-banda de 2ª ordem 
+rádio AM com recurso ao GNU Radio; a modelação elétrica e respetiva simulação temporal e espetral 
+em SPICE; e o projeto, simulação e caracterização experimental de um filtro passa-banda de 2.ª ordem 
 para a banda de FM com um Analisador Vetorial de Redes (VNA). Por fim, procedeu-se à integração deste 
 filtro num Radio Frequency Front-End (RFFE) para montagem e teste prático de um recetor Low-IF. 
-O objetivo central passa por comparar os resultados teóricos, as simulações ideais e com componentes 
+O objetivo central é comparar os resultados teóricos, as simulações ideais e com componentes 
 reais, e as respetivas medições laboratoriais.
 
 \section{Implementação e Simulação do Link de Comunicação em GNU Radio}\paragraph{}
@@ -66,7 +66,7 @@ de comunicação AM, desde a modulação até à desmodulação do sinal.
 O sistema foi modelado em \textit{gnuradio-companion} com uma frequência de amostragem 
 $f_s = \SI{768}{kHz}$ e uma portadora de $f_c = \SI{100}{kHz}$, dentro do intervalo 
 sugerido no enunciado. O sistema é composto por um transmissor AM, um canal com ruído 
-aditivo e um receptor com misturador em quadratura (IQ).
+aditivo e um recetor com misturador em quadratura (IQ).
 
 \subsection{Transmissor e canal}
 
@@ -86,10 +86,10 @@ Este sinal é multiplicado pela portadora, resultando em AM com portadora (DSB-L
     \label{eq:am}
 \end{equation}
 
-Expandindo~\eqref{eq:am}, o espectro apresenta a portadora a \SI{100}{kHz} e 
+Expandindo~\eqref{eq:am}, o espetro apresenta a portadora a \SI{100}{kHz} e 
 duas bandas laterais, a \SI{99}{kHz} e \SI{101}{kHz}, cada uma com amplitude $m/2$. 
 A constante somada em~\eqref{eq:env} garante que o envelope é sempre positivo, o que 
-permite a deteção de envolvente no receptor.
+permite a deteção de envolvente no recetor.
 
 O canal é modelado como ruído gaussiano branco aditivo (AWGN), somado ao sinal 
 $s(t)$ através de um bloco \textit{Add}. Foram incluídos \textit{QT GUI Time Sink} 
@@ -103,9 +103,9 @@ sinal modulado e saída do canal) para observar a transformação do sinal.
     \label{fig:tx}
 \end{figure}
 
-\subsection{Receptor}
+\subsection{Recetor}
 
-O receptor, ilustrado na Figura~\ref{fig:rx}, implementa uma demodulação coerente com 
+O recetor, ilustrado na Figura~\ref{fig:rx}, implementa uma demodulação coerente com 
 misturador IQ. O sinal recebido passa por um bloco de ganho ($g_1 = 1$) e é multiplicado 
 por um oscilador local de \SI{100}{kHz}, em cosseno (ramo I) e em seno (ramo Q).
 
@@ -131,7 +131,7 @@ entre $I$ e $Q$, mantendo a magnitude.
 \begin{figure}[H]
     \centering
     \includegraphics[width=\linewidth]{GNURadio2_Cos.png}
-    \caption{Receptor AM com misturador IQ: mistura com LO em cosseno e seno, filtragem passa-baixo com decimação, combinação IQ e deteção de envolvente (\textit{Complex to Mag}).}
+    \caption{Recetor AM com misturador IQ: mistura com LO em cosseno e seno, filtragem passa-baixo com decimação, combinação IQ e deteção de envolvente (\textit{Complex to Mag}).}
     \label{fig:rx}
 \end{figure}
 
@@ -139,7 +139,7 @@ entre $I$ e $Q$, mantendo a magnitude.
 
 A Figura~\ref{fig:tempo} apresenta os sinais no domínio do tempo e a 
 Figura~\ref{fig:freq} no domínio da frequência, em pontos-chave da cadeia. 
-À saída do receptor recupera-se a mensagem de \SI{1}{kHz} sobre um nível DC, 
+À saída do recetor recupera-se a mensagem de \SI{1}{kHz} sobre um nível DC, 
 que corresponde à portadora (termo unitário de~\eqref{eq:env}); para aplicação 
 em áudio este nível pode ser removido com um bloco \textit{DC Blocker}.
 
@@ -153,17 +153,17 @@ em áudio este nível pode ser removido com um bloco \textit{DC Blocker}.
 \begin{figure}[H]
     \centering
     % \includegraphics[width=\linewidth]{freq.png}
-    \caption{Espectros: (a) mensagem a \SI{1}{kHz}, (b) AM com portadora e bandas laterais a \SI{99}{kHz} e \SI{101}{kHz}, (c) sinal com ruído, (d) saída dos misturadores, com componentes em banda base e a \SI{200}{kHz}, (e) saída dos filtros.}
+    \caption{Espetros: (a) mensagem a \SI{1}{kHz}, (b) AM com portadora e bandas laterais a \SI{99}{kHz} e \SI{101}{kHz}, (c) sinal com ruído, (d) saída dos misturadores, com componentes em banda base e a \SI{200}{kHz}, (e) saída dos filtros.}
     \label{fig:freq}
 \end{figure}
 
 \subsection{Ruído e relação sinal-ruído}
 
 O ruído gaussiano utilizado tem amplitude 1, comparável à amplitude do sinal, 
-pelo que o SNR à entrada do receptor é baixo e o ruído é claramente visível no 
-domínio do tempo (Figura~\ref{fig:tempo}c). No espectro (Figura~\ref{fig:freq}c),
+pelo que o SNR à entrada do recetor é baixo e o ruído é claramente visível no 
+domínio do tempo (Figura~\ref{fig:tempo}c). No espetro (Figura~\ref{fig:freq}c),
  o ruído distribui-se por toda a largura de banda de simulação (\SI{768}{kHz}), 
- enquanto o sinal ocupa apenas três linhas espectrais.
+ enquanto o sinal ocupa apenas três linhas espetrais.
 
 Os filtros passa-baixo limitam a largura de banda de ruído de aproximadamente \SI{384}{kHz} (banda de Nyquist) para cerca de \SI{1}{kHz}, o que, para ruído branco, corresponde a uma melhoria teórica do SNR de
 \begin{equation}
@@ -195,7 +195,7 @@ com ruído gaussiano mantêm-se inalterados.
     \label{fig:wavtx}
 \end{figure}
 
-No receptor (Figura~\ref{fig:wavrx}), a estrutura IQ é a mesma, mas a frequência de
+No recetor (Figura~\ref{fig:wavrx}), a estrutura IQ é a mesma, mas a frequência de
 corte dos filtros passa-baixo foi aumentada de \SI{1}{kHz} para \SI{4}{kHz}
 (largura de transição de \SI{1}{kHz}), de modo a preservar a largura de banda útil
 do áudio.
@@ -203,67 +203,67 @@ do áudio.
 \begin{figure}[H]
     \centering
     \includegraphics[width=\linewidth]{GNURadio_Wav_Rx.png}
-    \caption{Receptor IQ com filtros passa-baixo a \SI{4}{kHz} e controlo do nível
+    \caption{Recetor IQ com filtros passa-baixo a \SI{4}{kHz} e controlo do nível
     de ruído através de \textit{QT GUI Range}.}
     \label{fig:wavrx}
 \end{figure}
 
 A envolvente recuperada tem a forma $\tfrac{1}{2}\left[1 + m\,x(t)\right]$, ou seja,
 um nível DC associado à portadora e um sinal útil atenuado por $m/2 = 0.25$.
-Esta alteração introduz ainda um compromisso entre fidelidade e ruído: um filtro
+O alargamento do filtro introduz ainda um compromisso entre fidelidade e ruído: um filtro
 mais largo preserva melhor o timbre do áudio, mas deixa passar mais potência de
 ruído, reduzindo o SNR à saída em relação ao caso de \SI{1}{kHz}.
 
 \section{Implementação e Simulação do Link de Comunicação em SPICE}\paragraph{}
 
 A segunda parte deste trabalho consistiu na implementação e simulação do mesmo link de comunicação AM,
-mas agora a nível de circuito elétrico, utilizando o simulador LTSpice. Enquanto na secção anterior
+mas agora a nível de circuito elétrico, utilizando o simulador LTspice. Enquanto na secção anterior
 o sistema foi modelado a nível funcional com blocos ideais em GNU Radio, nesta etapa pretende-se
 representar o transmissor e o recetor através de componentes elétricos (fontes de tensão, resistências,
 multiplicadores analógicos e filtros), permitindo uma análise mais próxima do comportamento real do
-circuito. O objetivo passa por realizar simulações no domínio do tempo (\textit{transient}) e no
+circuito. O objetivo é realizar simulações no domínio do tempo (\textit{transient}) e no
 domínio da frequência (análise de Fourier com a diretiva \textit{.four}), de modo a verificar a
 conformidade dos resultados com os obtidos na simulação ideal e com a teoria de modulação AM
 apresentada anteriormente.
 
-\subsection{Implementação LTSpice}
+\subsection{Implementação em LTspice}
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.5\linewidth]{TxLTSpice.png}
-    \caption{Bloco do Transmissor em LTSpice}
+    \caption{Bloco do transmissor em LTspice.}
     \label{fig:txltspice}
 \end{figure}
 
-Na figura \ref{fig:txltspice} é apresentado o transmissor implementado em LTSpice. A mensagem é gerada 
+Na Figura~\ref{fig:txltspice} é apresentado o transmissor implementado em LTspice. A mensagem é gerada 
 por uma fonte de tensão senoidal de \SI{1}{kHz}, que é multiplicada por um índice de modulação 
 $m=1$ e somada a uma constante unitária, obtendo-se o envelope $e(t) = 1 + m\cos(2\pi f_m t)$. 
-Este sinal é então multiplicado por uma portadora de \SI{100}{kHz} através do switch, resultando 
+Este sinal é então multiplicado por uma portadora de \SI{100}{kHz} através do interruptor, resultando 
 no sinal AM com portadora.
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.5\linewidth]{NoiseSpice.png}
-    \caption{Bloco de adição de ruido ao sinal AM em LTSpice.}
+    \caption{Bloco de adição de ruído ao sinal AM em LTspice.}
     \label{fig:noiseltspice}
 \end{figure}
 
-Na figura \ref{fig:noiseltspice} é possivel observar o bloco de adição de ruído ao sinal AM. O ruído 
-é gerado por uma fonte de tensão com configuração para ruído branco, que é somada ao sinal AM 
-através de uma montagem somadora.
+Na Figura~\ref{fig:noiseltspice} é possível observar o bloco de adição de ruído ao sinal AM. O ruído 
+é gerado por uma fonte de tensão configurada para ruído branco, cuja saída é somada ao sinal AM
+através de um amplificador somador.
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=\linewidth]{RxLTSpice.png}
-    \caption{Bloco do Receptor em LTSpice}
+    \caption{Bloco do recetor em LTspice.}
     \label{fig:rxltspice}
 \end{figure}
 
-No recetor, ilustrado na figura \ref{fig:rxltspice}, o sinal recebido passa por switch que faz a desmodulação da portadora,
-de seguida é filtrado por um filtro passa-baixo com frequência de corte de \SI{4}{kHz}, que elimina a componente de alta 
-frequência e recupera a mensagem original. Foi escolhido um mixer eimples para fazer esta parte.
+No recetor, ilustrado na Figura~\ref{fig:rxltspice}, o sinal recebido passa por um interruptor que realiza a desmodulação.
+Em seguida, passa por um filtro passa-baixo com frequência de corte de \SI{4}{kHz}, que elimina as componentes de alta
+frequência e recupera a mensagem original. Optou-se por um misturador simples, uma vez que a mistura IQ não é obrigatória nesta etapa.
 
-\subsection{Resultados do LTSpice}\paragraph{}
+\subsection{Resultados do LTspice}\paragraph{}
 
 \begin{figure}[H]
     \centering
@@ -293,10 +293,10 @@ frequência e recupera a mensagem original. Foi escolhido um mixer eimples para 
     \begin{subfigure}[b]{0.7\textwidth}
         \centering
         \includegraphics[width=\linewidth]{SinalRX.png}
-        \caption{Sinal na entrada do recetor antes do filtro depois do desmodulador (verde), depois do filtro passa-baixo (vermelho) e sinal recuperado (azul).}
+        \caption{Sinal no recetor à saída do interruptor, antes do filtro (verde), e sinal recuperado à saída do filtro passa-baixo (azul).}
         \label{fig:sinal_rx}
     \end{subfigure}
-    \caption{Sinais no domínio do tempo em pontos-chave do link de comunicação AM simulado em LTSpice.}
+    \caption{Sinais no domínio do tempo em pontos-chave do link de comunicação AM simulado em LTspice.}
     \label{fig:sinais_spice}
 \end{figure}
 
@@ -315,12 +315,127 @@ O segundo somador inversor repõe a polaridade positiva e soma o ruído branco
 cerca de $\pm\SI{0.5}{V}$ de ruído, que domina onde o envelope é próximo de zero.
 Ainda assim, a envolvente de \SI{1}{kHz} continua identificável.
 
-No receptor (Figura~\ref{fig:sinal_rx}), o sinal à saída do interruptor
+No recetor (Figura~\ref{fig:sinal_rx}), o sinal à saída do interruptor
 (a verde) é filtrado pelo passa-baixo de 4.ª ordem (a azul), que elimina a
-portadora, os harmónicos e o ruído fora de banda. Recuperando-se assim a mensagem original.
+portadora, os harmónicos e o ruído fora de banda, recuperando-se assim a mensagem original.
 
-\section{Implementação e Simulação do Filtro Passa-Banda de 2ª Ordem}\paragraph{}
+\section{Implementação e Simulação do Filtro Passa-Banda de 2.ª Ordem}\paragraph{}
 
+Os valores dos componentes do filtro LC foram calculados com o auxílio de uma calculadora
+\textit{online} da Marki Microwave, apresentada na Figura~\ref{fig:calculadora_filtro}.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\linewidth]{Calculadora_Filtro.png}
+    \caption{Calculadora de componentes para filtros LC.}
+    \label{fig:calculadora_filtro}
+\end{figure}
+
+Como se pode observar na Figura~\ref{fig:calculadora_filtro}, o filtro passa-banda de 2.ª ordem está centrado em cerca de
+\SI{93}{MHz}, a frequência indicada pelo professor, e tem uma largura de banda de \SI{20}{MHz} (de \SI{83}{MHz} a \SI{103}{MHz}).
+De seguida, o filtro foi implementado em LTspice, como se pode observar na Figura~\ref{fig:filtro_ltspice_ideal}.
+
+A resposta obtida, apresentada na Figura~\ref{fig:resultado_filtro_ideal}, permite concluir que o filtro
+está bem dimensionado, pois atenua as frequências fora da banda pretendida.
+
+\begin{figure}[H]
+    \centering
+    \begin{subfigure}[b]{0.7\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{FiltroLCIdeal.png}
+        \caption{Filtro passa-banda de 2.ª ordem implementado em LTspice.}
+        \label{fig:filtro_ltspice_ideal}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{ResultadoFiltroIdeal.png}
+        \caption{Resposta em frequência do filtro passa-banda ideal.}
+        \label{fig:resultado_filtro_ideal}
+    \end{subfigure}
+\caption{Simulação em LTspice do filtro com valores ideais.}
+\label{fig:Filtro_Ideal}
+\end{figure}
+
+Para tornar o filtro realizável, os valores ideais foram primeiro substituídos
+pelos valores comerciais mais próximos do conjunto do laboratório
+($L_s=\SI{560}{nH}$, $C_s=\SI{5.3}{pF}$, $L_1=\SI{13}{nH}$ e
+$C_1=\SI{220}{pF}$), mantendo componentes ideais, e a resposta foi simulada de
+novo. Em seguida, os componentes foram substituídos pelos modelos dos
+componentes reais: indutores da série L0805HP da Coilcraft e condensadores C0G
+da Murata (GRM), que incluem perdas e parasitas, e o filtro voltou a ser
+simulado. De acordo com os modelos, os indutores apresentam frequências de autorressonância
+de \SI{550}{MHz} e \SI{4.1}{GHz}, muito acima da banda de FM, e fatores de
+qualidade de cerca de 45 e 36 a \SI{92.5}{MHz}, pelo que são adequados para
+este filtro. 
+
+\begin{figure}[H]
+    \centering
+    \begin{subfigure}[b]{0.7\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{FiltroLCReal.png}
+        \caption{Filtro LC com valores comerciais.}
+        \label{fig:filtro_lc_real}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{ResultadoFiltroReal.png}
+        \caption{Resposta com valores comerciais.}
+        \label{fig:resultado_filtro_real}
+    \end{subfigure}
+\caption{Simulação do filtro passa-banda: (a) esquemático com os valores comerciais disponíveis; (b) respetiva resposta em frequência.}
+\end{figure}
+    
+\begin{figure}[H]
+    \centering
+    \begin{subfigure}[b]{0.7\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{FiltroLCRealReal.png}
+        \caption{Filtro LC com modelos de componentes reais.}
+        \label{fig:filtro_lc_realreal}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{Resultado_FiltroLCRealReal.png}
+        \caption{Resposta com modelos de componentes reais.}
+        \label{fig:resultado_filtro_realreal}
+    \end{subfigure}
+    \caption{Simulação do filtro passa-banda: (a) esquemático com modelos de componentes reais; (b) respetiva resposta em frequência.}
+    \label{fig:filtro_lc_comercial_e_real}
+\end{figure}
+
+Com base nas Figuras~\ref{fig:resultado_filtro_real} e~\ref{fig:resultado_filtro_realreal},
+conclui-se que as respostas com valores comerciais e com modelos de componentes reais são muito semelhantes à
+resposta ideal na banda de interesse. Espera-se, por isso, que o filtro funcione na prática como previsto, o que
+deverá ser confirmado experimentalmente.
+
+\section{Conclusão}\paragraph{}
+
+Neste trabalho, modelou-se uma ligação de comunicação AM a dois níveis de abstração, em GNU Radio e em LTspice,
+e projetou-se um filtro passa-banda de 2.ª ordem para a banda de FM.
+
+Em GNU Radio, o recetor com misturador IQ recuperou a mensagem, tanto com um tom de \SI{1}{kHz} como com um
+ficheiro de áudio, sem depender da fase relativa entre o oscilador local e a portadora. A análise do ruído mostrou
+que a filtragem passa-baixo é determinante para o SNR à saída: reduzir a largura de banda de ruído de
+\SI{384}{kHz} para \SI{1}{kHz} corresponde a uma melhoria teórica de cerca de \SI{26}{dB}. Com o áudio, foi
+necessário alargar o filtro para \SI{4}{kHz}, o que evidencia o compromisso entre fidelidade e ruído.
+
+Em LTspice, a mesma ligação foi implementada a nível de circuito, com interruptores a realizar a mistura e
+amplificadores operacionais nos somadores e no filtro. Apesar do ruído adicionado, a mensagem de \SI{1}{kHz} foi
+recuperada à saída do filtro passa-baixo de 4.ª ordem, o que confirma, a nível elétrico, o princípio de
+funcionamento observado em GNU Radio.
+
+O filtro passa-banda, centrado em cerca de \SI{93}{MHz} e com \SI{20}{MHz} de largura de banda, cumpre o objetivo
+de \SIrange{15}{25}{MHz} definido para um pré-seletor de RF. A resposta manteve-se muito semelhante na banda de
+interesse após a substituição dos valores ideais por valores comerciais e por modelos de componentes reais. As
+frequências de autorressonância muito acima da banda de FM e os fatores de qualidade de 45 e 36 confirmam que os
+indutores selecionados são adequados.
+
+A caracterização do filtro com o VNA e a sua integração no RFFE permitirão validar estes resultados
+experimentalmente e avaliar o seu efeito no recetor Low-IF.
+% TODO: substituir o parágrafo anterior pelos resultados medidos (VNA e RFFE) quando estiverem disponíveis.
 
 
 
