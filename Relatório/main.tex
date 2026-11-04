@@ -214,6 +214,113 @@ Esta alteração introduz ainda um compromisso entre fidelidade e ruído: um fil
 mais largo preserva melhor o timbre do áudio, mas deixa passar mais potência de
 ruído, reduzindo o SNR à saída em relação ao caso de \SI{1}{kHz}.
 
+\section{Implementação e Simulação do Link de Comunicação em SPICE}\paragraph{}
+
+A segunda parte deste trabalho consistiu na implementação e simulação do mesmo link de comunicação AM,
+mas agora a nível de circuito elétrico, utilizando o simulador LTSpice. Enquanto na secção anterior
+o sistema foi modelado a nível funcional com blocos ideais em GNU Radio, nesta etapa pretende-se
+representar o transmissor e o recetor através de componentes elétricos (fontes de tensão, resistências,
+multiplicadores analógicos e filtros), permitindo uma análise mais próxima do comportamento real do
+circuito. O objetivo passa por realizar simulações no domínio do tempo (\textit{transient}) e no
+domínio da frequência (análise de Fourier com a diretiva \textit{.four}), de modo a verificar a
+conformidade dos resultados com os obtidos na simulação ideal e com a teoria de modulação AM
+apresentada anteriormente.
+
+\subsection{Implementação LTSpice}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\linewidth]{TxLTSpice.png}
+    \caption{Bloco do Transmissor em LTSpice}
+    \label{fig:txltspice}
+\end{figure}
+
+Na figura \ref{fig:txltspice} é apresentado o transmissor implementado em LTSpice. A mensagem é gerada 
+por uma fonte de tensão senoidal de \SI{1}{kHz}, que é multiplicada por um índice de modulação 
+$m=1$ e somada a uma constante unitária, obtendo-se o envelope $e(t) = 1 + m\cos(2\pi f_m t)$. 
+Este sinal é então multiplicado por uma portadora de \SI{100}{kHz} através do switch, resultando 
+no sinal AM com portadora.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\linewidth]{NoiseSpice.png}
+    \caption{Bloco de adição de ruido ao sinal AM em LTSpice.}
+    \label{fig:noiseltspice}
+\end{figure}
+
+Na figura \ref{fig:noiseltspice} é possivel observar o bloco de adição de ruído ao sinal AM. O ruído 
+é gerado por uma fonte de tensão com configuração para ruído branco, que é somada ao sinal AM 
+através de uma montagem somadora.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\linewidth]{RxLTSpice.png}
+    \caption{Bloco do Receptor em LTSpice}
+    \label{fig:rxltspice}
+\end{figure}
+
+No recetor, ilustrado na figura \ref{fig:rxltspice}, o sinal recebido passa por switch que faz a desmodulação da portadora,
+de seguida é filtrado por um filtro passa-baixo com frequência de corte de \SI{4}{kHz}, que elimina a componente de alta 
+frequência e recupera a mensagem original. Foi escolhido um mixer eimples para fazer esta parte.
+
+\subsection{Resultados do LTSpice}\paragraph{}
+
+\begin{figure}[H]
+    \centering
+    \begin{subfigure}[b]{0.7\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{Sinal_antes_Portadora.png}
+        \caption{Sinal da mensagem antes da modulação.}
+        \label{fig:sinal_msg}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.7\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{Sinal_Chanel.png}
+        \caption{Sinal AM à saída do canal.}
+        \label{fig:sinal_canal}
+    \end{subfigure}
+
+    \vspace{0.4cm}
+
+    \begin{subfigure}[b]{0.7\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{SinalNoise.png}
+        \caption{Sinal AM com ruído aditivo.}
+        \label{fig:sinal_noise}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.7\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{SinalRX.png}
+        \caption{Sinal na entrada do recetor antes do filtro depois do desmodulador (verde), depois do filtro passa-baixo (vermelho) e sinal recuperado (azul).}
+        \label{fig:sinal_rx}
+    \end{subfigure}
+    \caption{Sinais no domínio do tempo em pontos-chave do link de comunicação AM simulado em LTSpice.}
+    \label{fig:sinais_spice}
+\end{figure}
+
+A Figura~\ref{fig:sinais_spice} mostra os sinais em pontos-chave da cadeia.
+A mensagem, à saída do somador inversor (Figura~\ref{fig:sinal_msg}), é
+$-\left[1+\cos(2\pi f_m t)\right]$, variando entre \SI{-2}{V} e \SI{0}{V}: tem
+o nível DC que garante a portadora no AM e polaridade invertida, consequência
+do ganho $-1$ do somador. À saída do interruptor (Figura~\ref{fig:sinal_canal}) obtém-se
+o produto deste envelope pela onda do oscilador, pelo que a envolvente
+inferior reproduz a mensagem, com a portadora de \SI{100}{kHz} a preencher o seu
+interior.
+
+O segundo somador inversor repõe a polaridade positiva e soma o ruído branco
+(Figura~\ref{fig:sinal_noise}): o sinal fica entre $\approx\SI{-0.6}{V}$ e
+\SI{2.4}{V}, ou seja, o envelope $e(t)=1+\cos(2\pi f_m t)\in[0,2]$\,V com
+cerca de $\pm\SI{0.5}{V}$ de ruído, que domina onde o envelope é próximo de zero.
+Ainda assim, a envolvente de \SI{1}{kHz} continua identificável.
+
+No receptor (Figura~\ref{fig:sinal_rx}), o sinal à saída do interruptor
+(a verde) é filtrado pelo passa-baixo de 4.ª ordem (a azul), que elimina a
+portadora, os harmónicos e o ruído fora de banda. Recuperando-se assim a mensagem original.
+
+\section{Implementação e Simulação do Filtro Passa-Banda de 2ª Ordem}\paragraph{}
+
 
 
 
