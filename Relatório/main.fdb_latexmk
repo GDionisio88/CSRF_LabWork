@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1793819336.48754 "c:/Users/Tecnico/Desktop/Faculdade/Mestrado 2ºano/CSRF/Lab1/CSRF_LabWork/Relatório/main.tex" "main.pdf" "main" 1793819339.13193 0
+["pdflatex"] 1793822289.80309 "c:/Users/Tecnico/Desktop/Faculdade/Mestrado 2ºano/CSRF/Lab1/CSRF_LabWork/Relatório/main.tex" "main.pdf" "main" 1793822292.24076 0
   "C:/Users/Tecnico/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1792582366 216925 a87f55355d64cc129ed22afd5857dac7 ""
   "C:/Users/Tecnico/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/ecbx1095.pk" 1777064739 28976 27d4fdce4904d0aced52e64694374258 ""
   "C:/Users/Tecnico/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/ecbx1200.pk" 1777064737 31952 b11bbe8e3f9971e81fd4c4a9e211a9ce ""
@@ -124,6 +124,10 @@
   "FiltroLCRealReal.png" 1793812448 12317 2c1a8e3281f7d21fa6b883a0ace5cf92 ""
   "GNURadio1_Cos.png" 1793634165 134868 1127988b23a495a06c11216a3471940b ""
   "GNURadio2_Cos.png" 1793634194 188211 ec9e7a3ece2d5b2b8d19e56e4741b6e3 ""
+  "GNURadio_Entrada.png" 1793821157 29679 014d33af9284d251aa2d809566576846 ""
+  "GNURadio_EntradaFFT.png" 1793821172 12330 73466b4cb88851ed7eed242d18f0e173 ""
+  "GNURadio_Saida.png" 1793821150 13696 5982e1b81d0d5d66055f268d3f9d0783 ""
+  "GNURadio_SaidaFFT.png" 1793821164 12436 fc9650c819d265c64cfa016d7bd74b4f ""
   "GNURadio_Wav_Rx.png" 1793637162 190983 8c21a71d2ef90e841a21637e524bf255 ""
   "GNURadio_Wav_Tx.png" 1793637144 123580 41c8417400ff6d29e7228d4bba4f0921 ""
   "NoiseSpice.png" 1793721405 10677 0bb6c5deb6d575e03f1227db21d7c099 ""
@@ -136,13 +140,13 @@
   "Sinal_Chanel.png" 1793722664 47148 16b573576b8bd4526c8553835edb7dc2 ""
   "Sinal_antes_Portadora.png" 1793722623 54954 b4bcfc853d1177fe6932eb6c0a0460d6 ""
   "TxLTSpice.png" 1793720706 21450 e979be5a11c2bf89f3983b5c508f7f7b ""
-  "c:/Users/Tecnico/Desktop/Faculdade/Mestrado 2ºano/CSRF/Lab1/CSRF_LabWork/Relatório/main.tex" 1793819332 21099 cb0a873149fee83987dd7434879e6b38 ""
+  "c:/Users/Tecnico/Desktop/Faculdade/Mestrado 2ºano/CSRF/Lab1/CSRF_LabWork/Relatório/main.tex" 1793822286 21455 6219ee1e80cbc5552f59b8724e8c17f2 ""
   "logo_fct.png" 1777218319 131572 e4df384da90813c3c895e143986dcf24 ""
-  "main.aux" 1793819338 10552 42c67b5f4fb072be452bf247deac2cf1 "pdflatex"
-  "main.lof" 1793819338 2781 806a1f95c86473df2d078b78cbe220b5 "pdflatex"
-  "main.out" 1793819338 2592 66625df9a5c322ff5f306e45bdecb683 "pdflatex"
-  "main.tex" 1793819332 21099 cb0a873149fee83987dd7434879e6b38 ""
-  "main.toc" 1793819338 1433 7025db6767e0e1b040a64a5d5c463e4e "pdflatex"
+  "main.aux" 1793822291 10688 9b01aca56d1ffc6987536a72b81746a5 "pdflatex"
+  "main.lof" 1793822291 2543 538f7e8e00b66740086e39d5540ffcd3 "pdflatex"
+  "main.out" 1793822291 2378 5e82b8e0465c0d379bf2ef8aa8d92587 "pdflatex"
+  "main.tex" 1793822286 21455 6219ee1e80cbc5552f59b8724e8c17f2 ""
+  "main.toc" 1793822291 1380 c51b21cc1a591c8f4abd9236f62ece22 "pdflatex"
   (generated)
   "main.aux"
   "main.lof"

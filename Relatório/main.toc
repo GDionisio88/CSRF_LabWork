@@ -5,15 +5,15 @@
 \contentsline {paragraph}{}{3}{section*.4}%
 \contentsline {subsection}{\numberline {2.1}Transmissor e canal}{3}{subsection.2.1}%
 \contentsline {subsection}{\numberline {2.2}Recetor}{4}{subsection.2.2}%
-\contentsline {subsection}{\numberline {2.3}Resultados}{5}{subsection.2.3}%
-\contentsline {subsection}{\numberline {2.4}Ruído e relação sinal-ruído}{5}{subsection.2.4}%
-\contentsline {subsection}{\numberline {2.5}Utilização de um ficheiro de áudio como mensagem}{5}{subsection.2.5}%
+\contentsline {subsection}{\numberline {2.3}Utilização de um ficheiro de áudio como mensagem}{5}{subsection.2.3}%
+\contentsline {subsection}{\numberline {2.4}Resultados}{6}{subsection.2.4}%
+\contentsline {paragraph}{}{6}{section*.9}%
 \contentsline {section}{\numberline {3}Implementação e Simulação do Link de Comunicação em SPICE}{7}{section.3}%
-\contentsline {paragraph}{}{7}{section*.11}%
+\contentsline {paragraph}{}{7}{section*.12}%
 \contentsline {subsection}{\numberline {3.1}Implementação em LTspice}{7}{subsection.3.1}%
 \contentsline {subsection}{\numberline {3.2}Resultados do LTspice}{8}{subsection.3.2}%
-\contentsline {paragraph}{}{8}{figure.caption.16}%
+\contentsline {paragraph}{}{8}{figure.caption.17}%
 \contentsline {section}{\numberline {4}Implementação e Simulação do Filtro Passa-Banda de 2.ª Ordem}{9}{section.4}%
-\contentsline {paragraph}{}{9}{section*.17}%
+\contentsline {paragraph}{}{9}{section*.18}%
 \contentsline {section}{\numberline {5}Conclusão}{11}{section.5}%
-\contentsline {paragraph}{}{11}{section*.22}%
+\contentsline {paragraph}{}{11}{section*.23}%

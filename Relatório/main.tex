@@ -32,7 +32,7 @@ e Testes de um Recetor Low-IF (SDR)}}\\[0.6cm]
 {\large CSRF -- 1.º Trabalho}\\[2cm]
 {\normalsize Diogo Ferreira 73076 \\ Gonçalo Dionísio 73638 \\ Iuri Moças 62907}\\[1cm]
 \vspace*{3cm}
-{\normalsize Data: 25/05/2026}\\[3.5cm]
+{\normalsize Data: 04/11/2026}\\[3.5cm]
 {\normalsize Departamento de Engenharia Eletrotécnica e de Computadores}\\
 {\normalsize CSRF – 2026/2027 – 1.º Semestre}\\
 \vfill
@@ -135,41 +135,6 @@ entre $I$ e $Q$, mantendo a magnitude.
     \label{fig:rx}
 \end{figure}
 
-\subsection{Resultados}
-
-A Figura~\ref{fig:tempo} apresenta os sinais no domínio do tempo e a 
-Figura~\ref{fig:freq} no domínio da frequência, em pontos-chave da cadeia. 
-À saída do recetor recupera-se a mensagem de \SI{1}{kHz} sobre um nível DC, 
-que corresponde à portadora (termo unitário de~\eqref{eq:env}); para aplicação 
-em áudio este nível pode ser removido com um bloco \textit{DC Blocker}.
-
-\begin{figure}[H]
-    \centering
-    % \includegraphics[width=\linewidth]{tempo.png}
-    \caption{Sinais no domínio do tempo: (a) mensagem, (b) sinal AM, (c) sinal à saída do canal, (d) saída dos filtros I/Q, (e) envolvente recuperada.}
-    \label{fig:tempo}
-\end{figure}
-
-\begin{figure}[H]
-    \centering
-    % \includegraphics[width=\linewidth]{freq.png}
-    \caption{Espetros: (a) mensagem a \SI{1}{kHz}, (b) AM com portadora e bandas laterais a \SI{99}{kHz} e \SI{101}{kHz}, (c) sinal com ruído, (d) saída dos misturadores, com componentes em banda base e a \SI{200}{kHz}, (e) saída dos filtros.}
-    \label{fig:freq}
-\end{figure}
-
-\subsection{Ruído e relação sinal-ruído}
-
-O ruído gaussiano utilizado tem amplitude 1, comparável à amplitude do sinal, 
-pelo que o SNR à entrada do recetor é baixo e o ruído é claramente visível no 
-domínio do tempo (Figura~\ref{fig:tempo}c). No espetro (Figura~\ref{fig:freq}c),
- o ruído distribui-se por toda a largura de banda de simulação (\SI{768}{kHz}), 
- enquanto o sinal ocupa apenas três linhas espetrais.
-
-Os filtros passa-baixo limitam a largura de banda de ruído de aproximadamente \SI{384}{kHz} (banda de Nyquist) para cerca de \SI{1}{kHz}, o que, para ruído branco, corresponde a uma melhoria teórica do SNR de
-\begin{equation}
-    \Delta\mathrm{SNR} \approx 10\log_{10}\!\left(\frac{384\,\mathrm{kHz}}{1\,\mathrm{kHz}}\right) \approx \SI{26}{dB}.
-\end{equation}
-
 \subsection{Utilização de um ficheiro de áudio como mensagem}
 \label{sec:wav}
 
@@ -187,7 +152,7 @@ com ruído gaussiano mantêm-se inalterados.
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.9\linewidth]{GNURadio_Wav_Tx.png}
+    \includegraphics[width=0.85\linewidth]{GNURadio_Wav_Tx.png}
     \caption{Transmissor e canal com ficheiro de áudio como fonte: \textit{Wav File
     Source} (\SI{48}{kHz}), interpolação por 16 (\SI{768}{kHz}), índice de
     modulação $m=0.5$, adição da constante unitária, mistura com a portadora e
@@ -213,6 +178,63 @@ um nível DC associado à portadora e um sinal útil atenuado por $m/2 = 0.25$.
 O alargamento do filtro introduz ainda um compromisso entre fidelidade e ruído: um filtro
 mais largo preserva melhor o timbre do áudio, mas deixa passar mais potência de
 ruído, reduzindo o SNR à saída em relação ao caso de \SI{1}{kHz}.
+
+\subsection{Resultados}\paragraph{}
+
+As Figuras~\ref{fig:gnuradio_entrada} e~\ref{fig:gnuradio_saida} comparam o sinal de
+áudio à entrada do sistema e à saída do recetor. Como as capturas no tempo não
+correspondem ao mesmo troço do áudio, a comparação é feita em termos de nível e de
+conteúdo espetral.
+
+\begin{figure}[H]
+    \centering
+    \begin{subfigure}[b]{0.49\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{GNURadio_Entrada.png}
+        \caption{Domínio do tempo.}
+        \label{fig:entrada_tempo}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.49\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{GNURadio_EntradaFFT.png}
+        \caption{Domínio da frequência.}
+        \label{fig:entrada_fft}
+    \end{subfigure}
+    \caption{Sinal de áudio à entrada do sistema em GNU Radio com waveform.}
+    \label{fig:gnuradio_entrada}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \begin{subfigure}[b]{0.49\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{GNURadio_Saida.png}
+        \caption{Domínio do tempo.}
+        \label{fig:saida_tempo}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.49\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{GNURadio_SaidaFFT.png}
+        \caption{Domínio da frequência.}
+        \label{fig:saida_fft}
+    \end{subfigure}
+    \caption{Sinal de áudio recuperado à saída do recetor em GNU Radio com waveform.}
+    \label{fig:gnuradio_saida}
+\end{figure}
+
+No domínio da frequência, as componentes acima de cerca de \SI{4.5}{kHz} são fortemente
+atenuadas pelos filtros passa-baixo (corte de \SI{4}{kHz} e transição de \SI{1}{kHz}),
+o que explica a forma mais suave do sinal recuperado. O pico em \SI{0}{Hz} corresponde
+ao nível DC introduzido pela constante somada no transmissor.
+
+No domínio do tempo, a saída segue $y(t) \approx \tfrac{1}{2}\left[1 + m\,x(t)\right]$,
+com $m = 0.5$. Logo, pela fórmula pode-se verificar que o sinal recuperado 
+apresenta atenuação na sua amplitude. Como $Q(t)$ é aproximadamente nulo, o bloco
+\textit{Complex to Mag} devolve essencialmente $I(t)$, sem alterar a forma da envolvente.
+
+
 
 \section{Implementação e Simulação do Link de Comunicação em SPICE}\paragraph{}
 

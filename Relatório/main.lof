@@ -1,15 +1,15 @@
 \babel@toc {portuguese}{}\relax 
 \contentsline {figure}{\numberline {1}{\ignorespaces Transmissor AM e modelo de canal em GNU Radio: geração da mensagem, adição do \textit {offset} DC, mistura com a portadora de \SI {100}{kHz} e adição de ruído gaussiano.}}{4}{figure.caption.5}%
 \contentsline {figure}{\numberline {2}{\ignorespaces Recetor AM com misturador IQ: mistura com LO em cosseno e seno, filtragem passa-baixo com decimação, combinação IQ e deteção de envolvente (\textit {Complex to Mag}).}}{5}{figure.caption.6}%
-\contentsline {figure}{\numberline {3}{\ignorespaces Sinais no domínio do tempo: (a) mensagem, (b) sinal AM, (c) sinal à saída do canal, (d) saída dos filtros I/Q, (e) envolvente recuperada.}}{5}{figure.caption.7}%
-\contentsline {figure}{\numberline {4}{\ignorespaces Espetros: (a) mensagem a \SI {1}{kHz}, (b) AM com portadora e bandas laterais a \SI {99}{kHz} e \SI {101}{kHz}, (c) sinal com ruído, (d) saída dos misturadores, com componentes em banda base e a \SI {200}{kHz}, (e) saída dos filtros.}}{5}{figure.caption.8}%
-\contentsline {figure}{\numberline {5}{\ignorespaces Transmissor e canal com ficheiro de áudio como fonte: \textit {Wav File Source} (\SI {48}{kHz}), interpolação por 16 (\SI {768}{kHz}), índice de modulação $m=0.5$, adição da constante unitária, mistura com a portadora e ruído gaussiano.}}{6}{figure.caption.9}%
-\contentsline {figure}{\numberline {6}{\ignorespaces Recetor IQ com filtros passa-baixo a \SI {4}{kHz} e controlo do nível de ruído através de \textit {QT GUI Range}.}}{6}{figure.caption.10}%
-\contentsline {figure}{\numberline {7}{\ignorespaces Bloco do transmissor em LTspice.}}{7}{figure.caption.12}%
-\contentsline {figure}{\numberline {8}{\ignorespaces Bloco de adição de ruído ao sinal AM em LTspice.}}{7}{figure.caption.13}%
-\contentsline {figure}{\numberline {9}{\ignorespaces Bloco do recetor em LTspice.}}{8}{figure.caption.14}%
-\contentsline {figure}{\numberline {10}{\ignorespaces Sinais no domínio do tempo em pontos-chave do link de comunicação AM simulado em LTspice.}}{8}{figure.caption.16}%
-\contentsline {figure}{\numberline {11}{\ignorespaces Calculadora de componentes para filtros LC.}}{9}{figure.caption.18}%
-\contentsline {figure}{\numberline {12}{\ignorespaces Simulação em LTspice do filtro com valores ideais.}}{10}{figure.caption.19}%
-\contentsline {figure}{\numberline {13}{\ignorespaces Simulação do filtro passa-banda: (a) esquemático com os valores comerciais disponíveis; (b) respetiva resposta em frequência.}}{10}{figure.caption.20}%
-\contentsline {figure}{\numberline {14}{\ignorespaces Simulação do filtro passa-banda: (a) esquemático com modelos de componentes reais; (b) respetiva resposta em frequência.}}{11}{figure.caption.21}%
+\contentsline {figure}{\numberline {3}{\ignorespaces Transmissor e canal com ficheiro de áudio como fonte: \textit {Wav File Source} (\SI {48}{kHz}), interpolação por 16 (\SI {768}{kHz}), índice de modulação $m=0.5$, adição da constante unitária, mistura com a portadora e ruído gaussiano.}}{5}{figure.caption.7}%
+\contentsline {figure}{\numberline {4}{\ignorespaces Recetor IQ com filtros passa-baixo a \SI {4}{kHz} e controlo do nível de ruído através de \textit {QT GUI Range}.}}{6}{figure.caption.8}%
+\contentsline {figure}{\numberline {5}{\ignorespaces Sinal de áudio à entrada do sistema em GNU Radio com waveform.}}{6}{figure.caption.10}%
+\contentsline {figure}{\numberline {6}{\ignorespaces Sinal de áudio recuperado à saída do recetor em GNU Radio com waveform.}}{6}{figure.caption.11}%
+\contentsline {figure}{\numberline {7}{\ignorespaces Bloco do transmissor em LTspice.}}{7}{figure.caption.13}%
+\contentsline {figure}{\numberline {8}{\ignorespaces Bloco de adição de ruído ao sinal AM em LTspice.}}{7}{figure.caption.14}%
+\contentsline {figure}{\numberline {9}{\ignorespaces Bloco do recetor em LTspice.}}{8}{figure.caption.15}%
+\contentsline {figure}{\numberline {10}{\ignorespaces Sinais no domínio do tempo em pontos-chave do link de comunicação AM simulado em LTspice.}}{8}{figure.caption.17}%
+\contentsline {figure}{\numberline {11}{\ignorespaces Calculadora de componentes para filtros LC.}}{9}{figure.caption.19}%
+\contentsline {figure}{\numberline {12}{\ignorespaces Simulação em LTspice do filtro com valores ideais.}}{10}{figure.caption.20}%
+\contentsline {figure}{\numberline {13}{\ignorespaces Simulação do filtro passa-banda: (a) esquemático com os valores comerciais disponíveis; (b) respetiva resposta em frequência.}}{10}{figure.caption.21}%
+\contentsline {figure}{\numberline {14}{\ignorespaces Simulação do filtro passa-banda: (a) esquemático com modelos de componentes reais; (b) respetiva resposta em frequência.}}{11}{figure.caption.22}%
