@@ -52,7 +52,7 @@ e Sistemas para Rádio-Frequência, centrado no estudo e teste de sistemas de co
 O trabalho divide-se em três etapas principais: a simulação a nível de sistema de uma ligação de 
 rádio AM com recurso ao GNU Radio; a modelação elétrica e respetiva simulação temporal e espetral 
 em SPICE; e o projeto, simulação e caracterização experimental de um filtro passa-banda de 2.ª ordem 
-para a banda de FM com um Analisador Vetorial de Redes (VNA). Por fim, procedeu-se à integração deste 
+para a banda de FM com um Vector Network Analyzer (VNA). Por fim, procedeu-se à integração deste 
 filtro num Radio Frequency Front-End (RFFE) para montagem e teste prático de um recetor Low-IF. 
 O objetivo central é comparar os resultados teóricos, as simulações ideais e com componentes 
 reais, e as respetivas medições laboratoriais.
@@ -66,7 +66,7 @@ de comunicação AM, desde a modulação até à desmodulação do sinal.
 O sistema foi modelado em \textit{gnuradio-companion} com uma frequência de amostragem 
 $f_s = \SI{768}{kHz}$ e uma portadora de $f_c = \SI{100}{kHz}$, dentro do intervalo 
 sugerido no enunciado. O sistema é composto por um transmissor AM, um canal com ruído 
-aditivo e um recetor com misturador em quadratura (IQ).
+aditivo e um recetor com um IQ Mixer.
 
 \subsection{Transmissor e canal}
 
@@ -106,7 +106,7 @@ sinal modulado e saída do canal) para observar a transformação do sinal.
 \subsection{Recetor}
 
 O recetor, ilustrado na Figura~\ref{fig:rx}, implementa uma demodulação coerente com 
-misturador IQ. O sinal recebido passa por um bloco de ganho ($g_1 = 1$) e é multiplicado 
+IQ Mixer. O sinal recebido passa por um bloco de ganho ($g_1 = 1$) e é multiplicado 
 por um oscilador local de \SI{100}{kHz}, em cosseno (ramo I) e em seno (ramo Q).
 
 Cada produto contém uma componente em banda base e outra a $2f_c = \SI{200}{kHz}$:
@@ -244,7 +244,7 @@ o sistema foi modelado a nível funcional com blocos ideais em GNU Radio, nesta 
 representar o transmissor e o recetor através de componentes elétricos (fontes de tensão, resistências,
 multiplicadores analógicos e filtros), permitindo uma análise mais próxima do comportamento real do
 circuito. O objetivo é realizar simulações no domínio do tempo (\textit{transient}) e no
-domínio da frequência (análise de Fourier com a diretiva \textit{.four}), de modo a verificar a
+domínio da frequência, de modo a verificar a
 conformidade dos resultados com os obtidos na simulação ideal e com a teoria de modulação AM
 apresentada anteriormente.
 
